@@ -1,0 +1,31 @@
+CREATE DATABASE note_app;
+USE note_app;
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contact VARCHAR(20),
+    password VARCHAR(255) NOT NULL,
+    profile_image VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS notes (
+    note_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    note TEXT NOT NULL,
+    date DATE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+cd server
+npm init -y
+npm install nodemon -D
+npm install express mysql2 bcryptjs jsonwebtoken cookie-parser cors dotenv multer
+
+cd client
+npm create vite@latest client -- --template react
+npm install react-router-dom axios
+
+
+
