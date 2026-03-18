@@ -7,11 +7,13 @@ const db = mysql.createPool({
    database: process.env.DB_DATABASE
 });
 
+/*
 db.getConnection().then((connection)=>{
     console.log(`Connected`);
     connection.release();
 }).catch((error)=>{
     console.log(`Error : `, error.message);
 });
+*/
 
 module.exports = db;

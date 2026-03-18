@@ -27,5 +27,15 @@ cd client
 npm create vite@latest client -- --template react
 npm install react-router-dom axios
 
+COMMIT 1
+~~~~~~~~
+cd server
+touch index.js db.js .env
+
+COMMIT 2
+~~~~~~~~
+cd server
+mkdir routes controllers
+touch routes/authRoutes.js controllers/authController.js
 
 
