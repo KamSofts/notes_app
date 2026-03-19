@@ -56,5 +56,14 @@ MariaDB [(none)]> SELECT * FROM note_app.users;
 +----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
 2 rows in set (0.001 sec)
 
-COMMIT 4
-~~~~~~~~
+COMMIT 4 (Login API added with JWT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mkdir bruno
+mv register-with-image.bru bruno/
+touch bruno/login.bru
+
+COMMIT 5 (Authenticated and logout routes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch server/middleware/auth.js
+touch bruno/me.bru
+touch bruno/logout.bru

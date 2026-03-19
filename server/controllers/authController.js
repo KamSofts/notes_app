@@ -59,4 +59,29 @@ const login = async (req, res) => {
     }
 };
 
-module.exports = { register, login };
+const getCurrentUser = async (req, res) => {
+    try {
+        const user_id = req.user.id;
+        const [rs] = await db.query(
+            `SELECT username,email,contact,profile_image
+             FROM users
+             WHERE id=?;`, [user_id]);
+        if (rs.length <= 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json(rs[0]);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const logout = (req, res) => {
+    try {
+        res.clearCookie("token");
+        res.json({ message: "Logout success" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { register, login, getCurrentUser, logout };
