@@ -1,0 +1,19 @@
+meta {
+  name: register-with-image
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://192.168.56.180:5000/api/auth/register
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  username: madhu
+  email: madhu@gmail.com
+  password: 123
+  contact: 1234567890
+  profile_image: @file(user.jpg)
+}
