@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const db = require('../db');
 
 const register = async (req, res) => {
@@ -23,8 +24,39 @@ const register = async (req, res) => {
         await db.query(sql, [username, email, hashPassword, contact || "", profile_image]);
         res.status(201).json({ message: "Register success" });
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 };
 
-module.exports = { register };
+const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        if (!username || !password) {
+            return res.status(400).json({ message: "Username or email and password required" });
+        }
+
+        const [rs] = await db.query("SELECT * FROM users WHERE username=? OR email=?;", [username, username]);
+        if (rs.length <= 0) {
+            return res.status(400).json({ message: "Invalid user" });
+        }
+
+        const user = rs[0];
+        const verifyPassword = await bcrypt.compare(password, user.password);
+        if (!verifyPassword) {
+            return res.status(400).json({ message: "Invalid password" });
+        }
+
+        const token = jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: process.env.JWT_VALIDITY });
+        res.cookie("token", token,
+            {
+                expiresIn: new Date(Date.now() + process.env.COOKIE_VALIDITY * 24 * 60 * 60 * 1000),
+                httpOnly: true
+            });
+
+        res.status(200).json({ message: "Login success" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { register, login };

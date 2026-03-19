@@ -44,6 +44,9 @@ cd server
 mkdir middleware uploads
 touch middleware/fileupload.js
 
+cd ..
+touch register-with-image.bru
+
 MariaDB [(none)]> SELECT * FROM note_app.users;
 +----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
 | id | username | email           | contact    | password                                                     | profile_image              |
@@ -53,4 +56,5 @@ MariaDB [(none)]> SELECT * FROM note_app.users;
 +----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
 2 rows in set (0.001 sec)
 
-
+COMMIT 4
+~~~~~~~~

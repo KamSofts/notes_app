@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
+const cookieParser = require('cookie-parser');
 // user imports
 // const db = require('./db'); // Verify database connection
 const authRoutes = require('./routes/authRoutes');
@@ -12,6 +13,7 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use("uploads", express.static(path.join(__dirname, "uploads")));
+app.use(cookieParser());
 
 // routes
 app.use("/api/auth", authRoutes);
