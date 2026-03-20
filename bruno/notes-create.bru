@@ -1,0 +1,17 @@
+meta {
+  name: notes-create
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://192.168.56.180:5000/api/notes/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "note":"siva user added a new note for testing"
+  }
+}

@@ -80,3 +80,21 @@ MariaDB [(none)]> SELECT * FROM note_app.users;
 |  2 | siva     | siva@gmail.com  |            | $2b$10$xX2QlTc3PxNq58FbKdHeRe.oF6xIoTCyVu9rozL2DNyFSTO4xnxbi | /uploads/1773975028032.jpg |
 +----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
 2 rows in set (0.001 sec)
+
+COMMIT 7 (User's note creation API)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch server/controllers/noteController.js
+touch server/routes/noteRoutes.js
+touch bruno/notes-create.bru
+
+MariaDB [(none)]> SELECT * FROM note_app.notes;
++---------+---------+----------------------------------------+------------+
+| note_id | user_id | note                                   | date       |
++---------+---------+----------------------------------------+------------+
+|       1 |       2 | siva user added a new note for testing | 2026-03-20 |
+|       2 |       2 | second notes for testing               | 2026-03-20 |
+|       3 |       1 | first note from madhu                  | 2026-03-20 |
+|       4 |       1 | second note from madhu                 | 2026-03-20 |
+|       5 |       1 | third note from madhu                  | 2026-03-20 |
++---------+---------+----------------------------------------+------------+
+5 rows in set (0.001 sec)
