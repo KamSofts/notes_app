@@ -32,4 +32,49 @@ const readNotes = async (req, res) => {
     }
 };
 
-module.exports = { createNote, readNotes };
+const updateNotes = async (req, res) => {
+    try {
+        const user_id = req.user.id;
+        if (user_id <= 0) {
+            throw new Error("User not found");
+        }
+        const note_id = req.params.id;
+        if (note_id <= 0) {
+            throw new Error("Note not found");
+        }
+        const { note } = req.body;
+        const sql = "UPDATE notes SET note=? WHERE user_id=? AND note_id=?;";
+        const [rs] = await db.query(sql, [note, user_id, note_id]);
+        if (rs.affectedRows > 0) {
+            res.status(200).json({ message: "Record updated" });
+        } else {
+            res.status(404).json({ message: "Record not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const deleteNote = async (req, res) => {
+    try {
+        const user_id = req.user.id;
+        if (user_id <= 0) {
+            throw new Error("User not found");
+        }
+        const note_id = req.params.id;
+        if (note_id <= 0) {
+            throw new Error("Note not found");
+        }
+        const sql = "DELETE FROM notes WHERE user_id=? AND note_id=?;";
+        const [rs] = await db.query(sql, [user_id, note_id]);
+        if (rs.affectedRows > 0) {
+            res.status(200).json({ message: "Record deleted" });
+        } else {
+            res.status(404).json({ message: "Note not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { createNote, readNotes, updateNotes, deleteNote };

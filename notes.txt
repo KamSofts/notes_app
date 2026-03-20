@@ -103,3 +103,19 @@ MariaDB [(none)]> SELECT * FROM note_app.notes;
 COMMIT 8 (Fetch all user's notes using GET method)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 touch bruno/notes-read.bru
+
+COMMIT 9 (Update and delete note)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch bruno/notes-update.bru (Login by siva Note:1 modified)
+touch burno/notes-delete.bru (Login by madhu Note:5 deleted)
+
+MariaDB [(none)]> SELECT * FROM note_app.notes;
++---------+---------+-----------------------------+------------+
+| note_id | user_id | note                        | date       |
++---------+---------+-----------------------------+------------+
+|       1 |       2 | First note modified by siva | 2026-03-20 |
+|       2 |       2 | second notes for testing    | 2026-03-20 |
+|       3 |       1 | first note from madhu       | 2026-03-20 |
+|       4 |       1 | second note from madhu      | 2026-03-20 |
++---------+---------+-----------------------------+------------+
+4 rows in set (0.001 sec)

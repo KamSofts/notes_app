@@ -1,0 +1,17 @@
+meta {
+  name: notes-update
+  type: http
+  seq: 1
+}
+
+put {
+  url: http://192.168.56.180:5000/api/notes/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "note":"First note modified by siva"
+  }
+}
