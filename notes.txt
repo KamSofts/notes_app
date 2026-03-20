@@ -98,3 +98,8 @@ MariaDB [(none)]> SELECT * FROM note_app.notes;
 |       5 |       1 | third note from madhu                  | 2026-03-20 |
 +---------+---------+----------------------------------------+------------+
 5 rows in set (0.001 sec)
+
+
+COMMIT 8 (Fetch all user's notes using GET method)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch bruno/notes-read.bru
