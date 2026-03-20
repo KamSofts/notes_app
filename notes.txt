@@ -67,3 +67,16 @@ COMMIT 5 (Authenticated and logout routes)
 touch server/middleware/auth.js
 touch bruno/me.bru
 touch bruno/logout.bru
+
+COMMIT 6 (Update profile image)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch bruno/update-image.bru
+
+MariaDB [(none)]> SELECT * FROM note_app.users;
++----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
+| id | username | email           | contact    | password                                                     | profile_image              |
++----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
+|  1 | madhu    | madhu@gmail.com | 1234567890 | $2b$10$xcul4PPBQV7BQsjasl4/IuWTjxRw7H/T1515qMQYvbtQZrHSb3dsK | /uploads/1773900437605.jpg |
+|  2 | siva     | siva@gmail.com  |            | $2b$10$xX2QlTc3PxNq58FbKdHeRe.oF6xIoTCyVu9rozL2DNyFSTO4xnxbi | /uploads/1773975028032.jpg |
++----+----------+-----------------+------------+--------------------------------------------------------------+----------------------------+
+2 rows in set (0.001 sec)

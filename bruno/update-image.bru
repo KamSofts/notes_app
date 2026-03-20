@@ -1,0 +1,15 @@
+meta {
+  name: update-image
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://192.168.56.180:5000/api/auth/update-image
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  profile_image: @file(user.jpg)
+}

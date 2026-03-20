@@ -2,10 +2,15 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 
+function setImage(req) {
+    return (req.file ? `/uploads/${req.file.filename}` : null);
+}
+
 const register = async (req, res) => {
     try {
         const { username, email, password, contact } = req.body;
-        const profile_image = req.file ? `/uploads/${req.file.filename}` : null;
+        // const profile_image = req.file ? `/uploads/${req.file.filename}` : null;
+        const profile_image = setImage(req);
 
         if (!username || !email || !password) {
             return res.status(400).json({ message: "Username, email and password required" });
@@ -84,4 +89,24 @@ const logout = (req, res) => {
     }
 };
 
-module.exports = { register, login, getCurrentUser, logout };
+const updateImage = async (req, res) => {
+    try {
+        const user_id = req.user.id;
+        if (user_id <= 0) {
+            throw new Error("User not found");
+        }
+        const profile_image = setImage(req);
+        const [rs] = await db.query(
+            `UPDATE users SET
+             profile_image=?
+             WHERE id=?;`, [profile_image, user_id]);
+        if (rs.affectedRows <= 0) {
+            throw new Error("User not found");
+        }
+        res.status(200).json({ message: "Update success" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+module.exports = { register, login, getCurrentUser, logout, updateImage };
