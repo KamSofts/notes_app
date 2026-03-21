@@ -119,3 +119,12 @@ MariaDB [(none)]> SELECT * FROM note_app.notes;
 |       4 |       1 | second note from madhu      | 2026-03-20 |
 +---------+---------+-----------------------------+------------+
 4 rows in set (0.001 sec)
+
+COMMIT 10 (Client side design works)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd client/
+touch public/user.jpg (Copy any user image for testing)
+mkdir components
+cd components/
+touch Navbar.jsx Dashboard.css Dashboard.jsx Profile.css Profile.jsx
+touch Login.jsx Register.jsx Style.css

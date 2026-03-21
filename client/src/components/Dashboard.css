@@ -1,0 +1,77 @@
+/* Dashboard.css */
+.dashboard-container {
+  max-width: 600px;
+  /* margin: 2rem auto; */
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.create-btn {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.note-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-content p:first-child {
+  font-weight: 500;
+  margin: 0;
+}
+
+.note-date {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn { background: #009000; color: white; }
+.delete-btn { background: #d00000; color: white; }
+
+button.hover { opacity: 0.8; }
