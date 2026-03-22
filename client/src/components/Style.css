@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #f4f7f6;
-  padding: 20px;
+  padding: 10px;
 }
 
 .form-card {

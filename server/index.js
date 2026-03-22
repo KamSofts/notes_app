@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const multer = require('multer');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 // user imports
 // const db = require('./db'); // Verify database connection
 const authRoutes = require('./routes/authRoutes');
@@ -15,6 +16,10 @@ const app = express();
 app.use(express.json());
 app.use("uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 
 // routes
 app.use("/api/auth", authRoutes);

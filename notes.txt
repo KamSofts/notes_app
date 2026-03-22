@@ -128,3 +128,21 @@ mkdir components
 cd components/
 touch Navbar.jsx Dashboard.css Dashboard.jsx Profile.css Profile.jsx
 touch Login.jsx Register.jsx Style.css
+
+COMMIT 11 (Client-side register module)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mkdir client/src/utils
+touch client/src/utils/api.js
+server-side cors middleware code added in index.js
+
+MariaDB [(none)]> SELECT * FROM note_app.users;
++----+----------+------------------+------------+--------------------------------------------------------------+----------------------------+
+| id | username | email            | contact    | password                                                     | profile_image              |
++----+----------+------------------+------------+--------------------------------------------------------------+----------------------------+
+|  1 | madhu    | madhu@gmail.com  | 1234567890 | $2b$10$xcul4PPBQV7BQsjasl4/IuWTjxRw7H/T1515qMQYvbtQZrHSb3dsK | /uploads/1773900437605.jpg |
+|  2 | siva     | siva@gmail.com   |            | $2b$10$xX2QlTc3PxNq58FbKdHeRe.oF6xIoTCyVu9rozL2DNyFSTO4xnxbi | /uploads/1773975028032.jpg |
+|  3 | ram      | ram@gmail.com    | 1234567980 | $2b$10$g.SMa72SuwbIRahDs.ApJuZ.JKkKr653yN6C3/8FQo8BhWIvG.Xou | NULL                       |
+|  4 | ganesh   | ganesh@gmail.com | 1234567890 | $2b$10$xWH7zbPXgtZm0Yps9uZAauVlttsMgmzwKhEXmdAQ6INq8B2b3TpOi | /uploads/1774163175631.png |
++----+----------+------------------+------------+--------------------------------------------------------------+----------------------------+
+4 rows in set (0.001 sec)
+
