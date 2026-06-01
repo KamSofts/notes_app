@@ -146,3 +146,9 @@ MariaDB [(none)]> SELECT * FROM note_app.users;
 +----+----------+------------------+------------+--------------------------------------------------------------+----------------------------+
 4 rows in set (0.001 sec)
 
+COMMIT 12 (Client-side login module)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+touch client/src/utils/AuthContext.jsx
+touch client/src/utils/ProtectedRoute.jsx
+
+

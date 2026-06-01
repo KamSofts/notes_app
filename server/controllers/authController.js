@@ -83,7 +83,7 @@ const getCurrentUser = async (req, res) => {
 const logout = (req, res) => {
     try {
         res.clearCookie("token");
-        res.json({ message: "Logout success" });
+        res.status(200).json({ message: "Logout success" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -103,7 +103,7 @@ const updateImage = async (req, res) => {
         if (rs.affectedRows <= 0) {
             throw new Error("User not found");
         }
-        res.status(200).json({ message: "Update success" });
+        res.status(200).json({ message: "Update success", profile_image });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
